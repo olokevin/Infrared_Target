@@ -1,0 +1,7 @@
+System.IO.IOException
+设备不识别此命令。
+
+   在 System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   在 System.IO.Ports.SerialStream.DiscardInBuffer()
+   在 System.IO.Ports.SerialStream.Dispose(Boolean disposing)
+   在 System.IO.Ports.SerialStream.Finalize()

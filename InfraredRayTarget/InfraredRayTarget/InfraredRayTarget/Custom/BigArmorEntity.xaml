@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="InfraredRayTarget.Custom.BigArmorEntity"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InfraredRayTarget.Custom"
+             xmlns:MyStroke="clr-namespace:InfraredRayTarget.Custom.MyStroke"
+             mc:Ignorable="d" Height="473" Width="862">
+    <Grid>
+        <Image Source="/InfraredRayTarget;component/Images/bigArmor.png" Stretch="Fill"/>
+        <Path Name="leftLight" Data="M12.125,138.875 L10.75,140 8.5,140.125 2.75,145.375 2.375,147.125 3.625,328 4.75,330.625 7,332.875 9.875,335 13,336.5 26.875,322.625 25.875,152.5 z" Fill="Red" HorizontalAlignment="Left" Height="208" Margin="2.5,138.375,0,0" Stretch="Fill" VerticalAlignment="Top" Width="27" StrokeThickness="0"/>
+        <Path Name="rightLight" Data="M817.5,137.5625 L803.5625,151.813 802.50054,322.36906 817.25001,337.68101 821.87484,335.55657 824.9997,332.93165 826.49964,331.24421 827.56209,329.80676 828.06256,327.43183 828.68704,302.18265 828.93751,273.99607 829.063,242.05961 829.00099,204.56082 828.56348,171.74939 828.06347,146.43771 827.06346,144.43778 824.93842,142.12535 822.50088,139.87542 z" Fill="Red" HorizontalAlignment="Left" Height="209.5" Margin="830.98,136.875,0,0" Stretch="Fill" StrokeThickness="0" VerticalAlignment="Top" Width="27.8"/>
+        <MyStroke:TextStrokeControl
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Top"
+            x:Name="number"
+            Text="2"
+            BorderBrush="Black"
+            Padding="6"
+            Origin="0,-15"
+            FontFamily="Microsoft YaHei"
+            FontWeight="Bold"
+            FontSize="300"
+            StrokeThickness="5" Margin="110,40,125,100"
+           >
+            <MyStroke:TextStrokeControl.Foreground>
+                <LinearGradientBrush  EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </MyStroke:TextStrokeControl.Foreground>
+        </MyStroke:TextStrokeControl>
+        <Canvas Name="canvas_bullet" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Canvas Name="canvas_minicircle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Canvas Name="canvas_avecircle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Border Name="border" BorderBrush="CornflowerBlue" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" Height="473" Width="862"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,49 @@
+﻿<Controls:MetroWindow
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        x:Class="InfraredRayTarget.SetSerialPort"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfraredRayTarget" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" ShowMinButton="False" ShowMaxRestoreButton="False" Loaded="OnLoaded" Closed="OnClosed"
+        Title="串口" Height="360" MinHeight="360" MaxHeight="360" Width="450" MinWidth="450" MaxWidth="450">
+    <Grid>
+        <TextBlock Name="portName" HorizontalAlignment="Left" Margin="40,35,0,0" VerticalAlignment="Top" Width="365" Height="40" TextAlignment="Center" TextWrapping="Wrap"/>
+        <Grid Name="infoGrid">
+            <Label Content="波特率：" HorizontalAlignment="Left" Margin="40,99,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="70"/>
+            <TextBox Name="baudRateBox" HorizontalAlignment="Left" Height="23" Margin="115,100,0,0" TextWrapping="Wrap" Text="115200" VerticalAlignment="Top" Width="88" PreviewTextInput="OnlyNumber" InputMethod.IsInputMethodEnabled="False" MaxLength="10"/>
+            <Label Content="数据位：" HorizontalAlignment="Left" Margin="220,100,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="82"/>
+            <ComboBox Name="dataBitsBox" HorizontalAlignment="Left" Margin="307,100,0,0" VerticalAlignment="Top" Width="88" SelectedIndex="3">
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="6"/>
+                <ComboBoxItem Content="7"/>
+                <ComboBoxItem Content="8"/>
+            </ComboBox>
+            <Label Content="奇偶校验：" HorizontalAlignment="Left" Margin="40,150,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+            <ComboBox Name="parityBox" HorizontalAlignment="Left" Margin="115,150,0,0" VerticalAlignment="Top" Width="88" SelectedIndex="0">
+                <ComboBoxItem Content="None"/>
+                <ComboBoxItem Content="Odd"/>
+                <ComboBoxItem Content="Even"/>
+                <ComboBoxItem Content="Mark"/>
+                <ComboBoxItem Content="Space"/>
+            </ComboBox>
+            <Label Content="停止位：" HorizontalAlignment="Left" Margin="220,150,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Right"/>
+            <ComboBox Name="stopBitsBox" HorizontalAlignment="Left" Margin="307,150,0,0" VerticalAlignment="Top" Width="88" SelectedIndex="1">
+                <ComboBoxItem Content="None"/>
+                <ComboBoxItem Content="One"/>
+                <ComboBoxItem Content="Two"/>
+                <ComboBoxItem Content="OnePointFive"/>
+            </ComboBox>
+            <Label Content="读取超时：" HorizontalAlignment="Left" Margin="40,200,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+            <TextBox Name="readTimeoutBox" HorizontalAlignment="Left" Height="23" Margin="115,200,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="88" PreviewTextInput="OnlyNumber" InputMethod.IsInputMethodEnabled="False" MaxLength="6"/>
+            <Label Content="写入超时：" HorizontalAlignment="Left" Margin="220,200,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="82"/>
+            <TextBox Name="writeTimeoutBox" HorizontalAlignment="Left" Height="23" Margin="307,200,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="88" PreviewTextInput="OnlyNumber" InputMethod.IsInputMethodEnabled="False" MaxLength="6"/>
+            <Label Content="ms" HorizontalAlignment="Left" Margin="168,200,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="35" Height="26"/>
+            <Label Content="ms" HorizontalAlignment="Left" Margin="360,200,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="35" Height="26"/>
+        </Grid>
+        <Button Name="openBtn" Content="打开串口" HorizontalAlignment="Left" Margin="200,265,0,0" VerticalAlignment="Top" Width="74" Click="OnOpenPort"/>
+        <Button Name="closeBtn" Content="关闭串口" HorizontalAlignment="Left" Margin="300,265,0,0" VerticalAlignment="Top" Width="74" Click="OnClosePort"/>
+        <Button Name="normalBtn" Content="默认配置" HorizontalAlignment="Left" Margin="100,265,0,0" VerticalAlignment="Top" Width="74" Click="OnNormalSet"/>
+    </Grid>
+</Controls:MetroWindow>

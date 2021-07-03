@@ -1,0 +1,16 @@
+System.IO.IOException
+句柄无效。
+
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.__ConsoleStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)
+   在 System.IO.StreamWriter.Write(Char[] buffer, Int32 index, Int32 count)
+   在 System.IO.TextWriter.SyncTextWriter.WriteLine(String format, Object[] arg)
+   在 System.Console.WriteLine(String format, Object[] arg)
+   在 Debug.WriteMessage(MSG_COLOR color, String msg, Object[] args) 位置 C:\Users\admin\Desktop\新建文件夹\InfraredRayTarget(1)\InfraredRayTarget\InfraredRayTarget\Utility\Debug.cs:行号 86
+   在 Debug.LogWarning(String msg, Object[] args) 位置 C:\Users\admin\Desktop\新建文件夹\InfraredRayTarget(1)\InfraredRayTarget\InfraredRayTarget\Utility\Debug.cs:行号 55
+   在 BaseService.WorkProc() 位置 C:\Users\admin\Desktop\新建文件夹\InfraredRayTarget(1)\InfraredRayTarget\InfraredRayTarget\Component\BaseService.cs:行号 42
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()

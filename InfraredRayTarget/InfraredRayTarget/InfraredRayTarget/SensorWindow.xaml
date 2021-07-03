@@ -1,0 +1,1563 @@
+﻿<Controls:MetroWindow
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        x:Class="InfraredRayTarget.SensorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfraredRayTarget" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" Topmost="True" ShowMinButton="False" ShowMaxRestoreButton="False" Loaded="OnLoaded"
+        Title="传感器状态" Height="750" MinHeight="750" MaxHeight="750" Width="1125" MinWidth="1125" MaxWidth="1125">
+    <!--<Grid>
+        <Grid Margin="10,40,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28">
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="40,10,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130">
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="10,170,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28">
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="10,300,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28">
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="10,430,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28">
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="10,560,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28">
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="170,10,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130">
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="300,10,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130">
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="430,10,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130">
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="560,10,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130">
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="690,10,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130">
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="820,10,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130">
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="950,10,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130">
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="1080,40,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="1080,170,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="1080,300,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="1080,430,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="1080,560,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,15,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,30,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,45,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,60,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,75,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,90,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="15" Width="25" Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/lamp_red.png" Stretch="Fill"/>
+        </Grid>
+        <Grid Margin="40,680,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="170,680,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="300,680,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="430,680,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="560,680,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="690,680,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb21" HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb20" HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb19" HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb18" HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb17" HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="820,680,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image Name="xb16" HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb15" HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb14" HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb13" HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb12" HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb11" HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb10" HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb9" HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+        <Grid Margin="950,680,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Image Name="xb8" HorizontalAlignment="Left" Height="15" Margin="0,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb7" HorizontalAlignment="Left" Height="15" Margin="15,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb6" HorizontalAlignment="Left" Height="15" Margin="30,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb5" HorizontalAlignment="Left" Height="15" Margin="45,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb4" HorizontalAlignment="Left" Height="15" Margin="60,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb3" HorizontalAlignment="Left" Height="15" Margin="75,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb2" HorizontalAlignment="Left" Height="15" Margin="90,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Name="xb1" HorizontalAlignment="Left" Height="15" Margin="105,5,0,0" VerticalAlignment="Top" Width="25" Source="Images/lamp_red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+        </Grid>
+    </Grid>-->
+    <Grid>
+        <Canvas Name="canvas_lightbead" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TextBlock Name="xLabel" HorizontalAlignment="Left" Margin="200,150,0,0" TextWrapping="Wrap" Text="X轴：" VerticalAlignment="Top" Height="200" Width="700" FontSize="18"/>
+        <TextBlock Name="yLabel" HorizontalAlignment="Left" Margin="200,400,0,0" TextWrapping="Wrap" Text="Y轴：" VerticalAlignment="Top" Height="200" Width="700" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1030,620,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="890,620,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="750,620,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="620,620,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="500,620,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="370,620,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="230,620,0,0" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,620,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="1030,470,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1030,345,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1030,210,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1030,90,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Height="50" Width="22" FontSize="36"/>
+    </Grid>
+</Controls:MetroWindow>

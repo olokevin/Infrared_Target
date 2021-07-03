@@ -1,0 +1,27 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InfraredRayTarget.Custom"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="InfraredRayTarget.Custom.Armor"
+             mc:Ignorable="d" Height="90" Width="120" Loaded="OnLoaded">
+
+    <Grid>
+        <Grid Name="smallArmor" Visibility="Visible">
+            <Button Margin="30,13,31,0" Style="{StaticResource ArmorBtn}" Click="OnChangeArmor" Background="White" Width="59" Height="49" VerticalAlignment="Top" ToolTip="更换大小装甲模块"/>
+            <Button Name="btn_smallLeft" Margin="25,24,84,0" Style="{StaticResource RhombusBtn}" Click="OnChangeColor" Background="Red" Width="11" Height="28" VerticalAlignment="Top" ToolTip="更换红蓝颜色"/>
+            <Button Name="btn_smallRight" Margin="83,23,26,0" Style="{StaticResource RhombusBtn}" Click="OnChangeColorMore" Background="Red" Width="11" Height="28" VerticalAlignment="Top" ToolTip="更换更多颜色"/>
+            <Ellipse HorizontalAlignment="Left" Height="30" Margin="45,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
+            <Button Name="btn_smallArmor" Content="2" Margin="46,23,46,0" Style="{StaticResource CircleBtn}" Click="OnChangeNumber" Background="White" Height="28" VerticalAlignment="Top" ToolTip="更换编号"/>
+        </Grid>
+        <Grid Name="bigArmor" Visibility="Hidden">
+            <Button Margin="13,13,13,28" Style="{StaticResource ArmorBtn}" Click="OnChangeArmor" Background="White"/>
+            <Button Name="btn_bigLeft" Margin="8,24,101,38" Style="{StaticResource RhombusBtn}" Click="OnChangeColor" Background="Red"/>
+            <Button Name="btn_bigRight" Margin="101,23,8,38" Style="{StaticResource RhombusBtn}" Click="OnChangeColorMore" Background="Red"/>
+            <Ellipse HorizontalAlignment="Left" Height="30" Margin="45,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
+            <Button Name="btn_bigArmor" Content="2" Margin="46,23,46,39" Style="{StaticResource CircleBtn}" Click="OnChangeNumber" Background="White"/>
+        </Grid>
+        <Label Name="colorLabel" Content="Label" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="120" Height="28" HorizontalContentAlignment="Center"/>
+    </Grid>
+</UserControl>

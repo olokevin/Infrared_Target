@@ -1,0 +1,220 @@
+﻿<Controls:MetroWindow Name="mainWindow"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        x:Class="InfraredRayTarget.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfraredRayTarget"
+        xmlns:custom="clr-namespace:InfraredRayTarget.Custom"
+        ShowMaxRestoreButton="False" ShowSystemMenuOnRightClick="False"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Loaded="OnLoaded" Closing="OnClosing" KeyDown="OnDeleteBullet"
+        Title="Robomaster电子靶 v1.0" Height="620" MinHeight="620" MaxHeight="620" Width="1300" MinWidth="1300" MaxWidth="1300">
+
+    <Grid>
+        <!--菜单栏-->
+        <Menu Height="30" VerticalAlignment="Top" BorderBrush="LightGray" BorderThickness="1" Margin="-4,0,0,0">
+            <MenuItem Name="menuItemConnectTarget" Header="红外靶" SubmenuOpened="OnMenuOpen">
+                <MenuItem Name="btn_top" Header="置顶" Click="OnTopmost"/>
+                <MenuItem Name="btnSave" Header="保存" Click="OnSaveData"/>
+                <MenuItem Name="btnImport" Header="导入" Click="OnOpenHistoryPanel"/>
+                <MenuItem Header="截图" Click="OnCaptureTarget"/>
+                <MenuItem Name="btnChangeSize" Header="隐藏" Click="OnShowOrHideTarget"/>
+            </MenuItem>
+
+            <MenuItem Header="玩家">
+                <MenuItem Header="添加玩家" Click="OnAddPlayer"/>
+                <MenuItem Header="移除选中的玩家" Click="OnRemovePlayer"/>
+                <MenuItem Header="移除全部玩家" Click="OnClearPlayer"/>
+                <MenuItem Header="清空选中玩家的子弹" Click="OnClearPlayerBullets"/>
+            </MenuItem>
+
+            <MenuItem Name="menu_showType" Header="显示全部弹道">
+                <MenuItem Name="menu_showAll" Header="全部" Click="OnShowAllBullets" IsChecked="True"/>
+                <MenuItem Name="menu_showHit" Header="命中" Click="OnShowHitBullets"/>
+                <MenuItem Name="menu_showMiss" Header="未命中" Click="OnShowMissBullets"/>
+            </MenuItem>
+
+            <MenuItem Name="btnCalCircle" Header="清除">
+                <MenuItem Header="日志" Click="OnClearLogs"/>
+                <MenuItem Name="btnCalSta" Header="最小圆包围" Click="OnClearMiniCircleCanvas"/>
+                <MenuItem Header="平均距离圆" Click="OnClearAveCircleCanvas"/>
+            </MenuItem>
+
+            <MenuItem Header="其他">
+                <MenuItem Header="帮助" Click="OnOpenHelpPanel"/>
+                <MenuItem Header="查看截图" Click="OnNavigationCapturePanel"/>
+                <MenuItem Header="查看数据" Click="OnNavigationData"/>
+            </MenuItem>
+            <MenuItem Header="异常" Click="OnOpenLampBeadPanel"/>
+            <MenuItem Header="模拟小弹道" Click="OnInventedSmall"/>
+            <MenuItem Header="模拟大弹道" Click="OnInventedBig"/>
+        </Menu>
+
+        <!--状态-->
+        <Grid Margin="20,55,0,0" Height="138" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300">
+            <Border BorderBrush="Gray" BorderThickness="1" Height="138" VerticalAlignment="Top"/>
+            <Label Content="状态" Background="White" HorizontalAlignment="Left" Margin="25,-13,0,0" VerticalAlignment="Top" Width="35"/>
+            <Label Background="White" HorizontalAlignment="Left" Margin="76,-13,0,0" VerticalAlignment="Top" Width="5" Height="23"/>
+            <Image Name="img_state" HorizontalAlignment="Left" Height="20" Margin="58,-10,0,0" VerticalAlignment="Top" Width="20" Source="Images/disconnect.png"/>
+            <TextBox Name="txt_state" HorizontalAlignment="Left" Margin="25,30,0,0" TextWrapping="Wrap" Text="未连接下位机" VerticalAlignment="Top" FontSize="14" IsReadOnly="True" Width="250"/>
+            <TextBox Name="txt_version" HorizontalAlignment="Left" Margin="95,80,0,0" TextWrapping="Wrap" Text="0.0.0.0" VerticalAlignment="Top" FontSize="14" Width="180" IsReadOnly="True" ToolTip="固件当前版本"/>
+            <Label Content="固件版本：" HorizontalAlignment="Left" Margin="25,80,0,0" VerticalAlignment="Top" Height="27"/>
+        </Grid>
+
+        <!--串口和固件-->
+        <Grid Margin="20,218,0,22" HorizontalAlignment="Left" Width="300">
+            <Border BorderBrush="Gray" BorderThickness="1" Height="340" VerticalAlignment="Top"/>
+            <Button Name="btn_serial" Height="28" Width="40" Content="串口" HorizontalAlignment="Left" Margin="25,-14,0,0" VerticalAlignment="Top" Background="White" Style="{StaticResource BorderBtn}" Click="OnShowSerialView"/>
+            <Button Name="btn_firmware" Foreground="Gray" Height="28" Width="40" Content="固件" HorizontalAlignment="Left" Margin="85,-14,0,0" VerticalAlignment="Top" Background="White" Style="{StaticResource BorderBtn}" Click="OnShowFirmwareGrid"/>
+            <Button Name="btn_screen" Foreground="Gray" Height="28" Width="40" Content="屏幕" HorizontalAlignment="Left" Margin="150,-14,0,0" VerticalAlignment="Top" Background="White" Style="{StaticResource BorderBtn}" Click="OnShowScreenView"/>
+
+            <ListView Name="view_serial" BorderThickness="0" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="280" MouseDoubleClick="OnClickSerialPortItem" SelectionMode="Single" Margin="10,22,0,0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="300" DisplayMemberBinding="{Binding PortName}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView Visibility="Hidden" Name="view_screen" BorderThickness="0" HorizontalAlignment="Left" Height="302" VerticalAlignment="Top" Width="280" MouseDoubleClick="OnClickScreenItem" SelectionMode="Single" Margin="10,22,0,0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceName}"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Bounds}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Grid Name="grid_firmware" Visibility="Hidden">
+                <ListView Name="view_firmware" BorderThickness="0" HorizontalAlignment="Left" Height="263" Margin="10,22,0,0" VerticalAlignment="Top" Width="280">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn  DisplayMemberBinding="{Binding Date}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Name="btn_update" Content="升级" HorizontalAlignment="Left" Margin="210,295,0,0" VerticalAlignment="Top" Width="76" Click="OnStartUpdate"/>
+            </Grid>
+        </Grid>
+
+        <!--目标-->
+        <Grid Margin="325,55,0,0" Height="138" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Left" Width="300">
+            <Border BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="300"/>
+            <CheckBox Name="check_single" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,-9,0,0" Width="18" ToolTip="只记录一颗子弹" Unchecked="OnUnAutoReckon" IsChecked="True"/>
+            <Button Name="btn_target" Content="靶子" Background="White" HorizontalAlignment="Left" Margin="25,-14,0,0" VerticalAlignment="Top" Height="28" Width="35" Style="{StaticResource BorderBtn}" Click="OnShowTargetGrid" ToolTip="切换至靶子模式"/>
+            <Button Name="btn_armor" Content="装甲模块" Foreground="Gray" Background="White" HorizontalAlignment="Left" Margin="80,-14,0,0" VerticalAlignment="Top" Height="28" Width="60" Style="{StaticResource BorderBtn}" Click="OnShowArmorGrid" ToolTip="切换至模拟装甲模块模式"/>
+            <Button Name="btn_custom" Content="自定义" Foreground="Gray" Background="White" HorizontalAlignment="Left" Margin="139,-14,0,0" VerticalAlignment="Top" Height="28" Width="47" Style="{StaticResource BorderBtn}" Click="OnShowCustomGrid" Visibility="Hidden"/>
+            <Grid Name="grid_goal_target" Visibility="Visible">
+                <TextBox Name="circleCountBox" HorizontalAlignment="Left" Height="22" Margin="25,35,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="250" PreviewTextInput="OnlyNumber" InputMethod.IsInputMethodEnabled="False" MaxLength="2" TextChanged="OnCircleCountChange" HorizontalContentAlignment="Center" ToolTip="设置靶环"/>
+                <Slider Name="circleCountSlider" Maximum="20" Minimum="2" SmallChange="1" Value="4" ValueChanged="OnSetCircleCount" Margin="25,65,0,30" HorizontalAlignment="Left" Width="250" ToolTip="设置靶环"/>
+            </Grid>
+            <Grid Name="grid_goal_armor" Visibility="Hidden" Margin="1,0,-1,0">
+                <TextBlock HorizontalAlignment="Left" Margin="124,40,0,0" TextWrapping="Wrap" Text="速度：" VerticalAlignment="Top" FontSize="14" Width="46" Height="20"/>
+                <Slider Name="slider_armor_speed" HorizontalAlignment="Left" Margin="175,40,0,0" VerticalAlignment="Top" Width="84" SmallChange="1" Maximum="20" ValueChanged="OnSetArmorSpeed" Value="5" Height="23" ToolTip="更改装甲模块移动速度"/>
+                <TextBlock Name="txt_armor_speed" HorizontalAlignment="Left" Margin="264,40,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" FontSize="14" Width="21" Height="20"/>
+                <ComboBox Name="com_armorMoveType" HorizontalAlignment="Left" Margin="124,85,0,0" VerticalAlignment="Top" Width="161" SelectedIndex="1" Height="26" SelectionChanged="OnSelectArmorMoveType" ToolTip="更改装甲模块移动方式">
+                    <ComboBoxItem Content="上下"/>
+                    <ComboBoxItem Content="左右"/>
+                    <ComboBoxItem Content="反弹"/>
+                    <ComboBoxItem Content="随机"/>
+                </ComboBox>
+                <custom:Armor Margin="4,25,176,13"/>
+            </Grid>
+            <Grid Name="grid_goal_custom" Height="122" VerticalAlignment="Top" Visibility="Hidden">
+                <Image Name="img_custom" Visibility="Visible" HorizontalAlignment="Left" Height="50" Margin="47,37,0,0" VerticalAlignment="Top" Width="50"/>
+                <Border BorderBrush="Gray" Visibility="Visible" BorderThickness="1" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="54" Margin="45,35,0,0"/>
+                <TextBox Name="txt_customName" HorizontalAlignment="Left" Margin="110,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="10" Width="219" Height="17"/>
+                <Button Name="btn_selectOrcreateCustom" Content="选择/编辑" HorizontalAlignment="Left" Margin="133,75,0,0" VerticalAlignment="Top" Width="76" Click="OnOpenCustomGoalWindow" Height="11"/>
+                <Button Name="btn_stopCustom" Content="暂停" HorizontalAlignment="Left" Margin="214,75,0,0" VerticalAlignment="Top" Width="55" Click="OnOpenColorPanel" Height="11"/>
+                <Button Name="btn_destroyCustom" Content="摧毁" HorizontalAlignment="Left" Margin="274,75,0,0" VerticalAlignment="Top" Width="55" Click="OnOpenColorPanel" Height="11"/>
+            </Grid>
+            <Label Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,-9,0,0" Width="5" Height="18"/>
+            <Label Content="Single" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="230,-13,0,0" ToolTip="只记录一颗子弹"/>
+        </Grid>
+
+        <!--计算-->
+        <Grid Margin="630,55,0,0" Height="138" VerticalAlignment="Top" HorizontalAlignment="Left" Width="382">
+            <Border BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="382"/>
+            <Button Name="aveBtn" Content="平均距离圆" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,-13,0,0" Style="{StaticResource BorderBtn}" Height="26" Width="75" Click="OnShowAveCircleGrid" ToolTip="计算平均距离圆"/>
+            <Button Name="miniBtn" Content="最小圆包围" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,-13,0,0" Style="{StaticResource BorderBtn}" Height="26" Foreground="Gray" Width="70" Click="OnShowMiniCircle" ToolTip="计算最小圆包围"/>
+            <Button Name="calStaBtn" Content=" 差" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,-13,0,0" Style="{StaticResource BorderBtn}" Height="26" Foreground="Gray" Width="22" Click="OnShowCalSta" ToolTip="计算方差和标准差"/>
+            <CheckBox Name="check_autoReckon" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,-9,0,0" Width="18" ToolTip="实时计算数据" Checked="OnAutoReckon" Unchecked="OnUnAutoReckon"/>
+            <Label Content="Auto" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="318,-13,0,0" ToolTip="实时计算数据"/>
+            <Label Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,-9,0,0" Width="5" Height="18"/>
+
+            <Grid Name="aveCircleGrid" Margin="10,18,10,10" Visibility="Visible">
+                <TextBlock Text="X" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,10,0,0"/>
+                <TextBlock Text="Y" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="145,10,0,0"/>
+                <TextBlock Text="半径" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,10,0,0"/>
+                <TextBlock Text="个数" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="305,10,0,0"/>
+                <TextBlock Text="散布" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,35,0,0"/>
+                <TextBlock Text="集中" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0"/>
+                <TextBlock Name="aveSX" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="54,35,0,0" Width="50" FontSize="11" Height="27" Block.TextAlignment="Center"/>
+                <TextBlock Name="aveSY" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,35,0,0" Width="50" FontSize="11" Height="27" Block.TextAlignment="Center"/>
+                <TextBlock Name="aveSRadius" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195,35,0,0" Width="64" FontSize="11" Height="27" Block.TextAlignment="Center"/>
+                <TextBlock Name="aveSCount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="284,35,0,0" Width="65" FontSize="11" Height="27" Block.TextAlignment="Center"/>
+                <TextBlock Name="aveJX" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="54,70,0,0" Width="50" FontSize="11" Height="26" Block.TextAlignment="Center"/>
+                <TextBlock Name="aveJY" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,70,0,0" Width="50" FontSize="11" Height="26" Block.TextAlignment="Center"/>
+                <TextBlock Name="aveJRadius" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195,70,0,0" Width="64" FontSize="11" Height="26" Block.TextAlignment="Center"/>
+                <TextBlock Name="aveJCount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="284,70,0,0" Width="63" FontSize="11" Height="26" Block.TextAlignment="Center"/>
+            </Grid>
+            <Grid Name="miniCircleGrid" Margin="10,18,0,10" Visibility="Hidden">
+                <TextBlock Text="X" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,10,0,0"/>
+                <TextBlock Text="Y" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="145,10,0,0"/>
+                <TextBlock Text="半径" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,10,0,0"/>
+                <TextBlock Text="个数" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="305,10,0,0"/>
+                <TextBlock Text="散布" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,35,0,0"/>
+                <TextBlock Text="集中" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0"/>
+                <TextBlock Name="minSX" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="54,35,0,0" Width="50" FontSize="11" Height="27" Block.TextAlignment="Center"/>
+                <TextBlock Name="minSY" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,35,0,0" Width="50" FontSize="11" Height="27" Block.TextAlignment="Center"/>
+                <TextBlock Name="minSRadius" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195,35,0,0" Width="64" FontSize="11" Height="27" Block.TextAlignment="Center"/>
+                <TextBlock Name="minSCount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="284,35,0,0" Width="65" FontSize="11" Height="27" Block.TextAlignment="Center"/>
+                <TextBlock Name="minJX" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="54,70,0,0" Width="50" FontSize="11" Height="26" Block.TextAlignment="Center"/>
+                <TextBlock Name="minJY" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,70,0,0" Width="50" FontSize="11" Height="26" Block.TextAlignment="Center"/>
+                <TextBlock Name="minJRadius" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195,70,0,0" Width="64" FontSize="11" Height="26" Block.TextAlignment="Center"/>
+                <TextBlock Name="minJCount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="284,70,0,0" Width="63" FontSize="11" Height="26" Block.TextAlignment="Center"/>
+            </Grid>
+            <Grid Name="calStaGrid" Margin="10,18,10,10" Visibility="Hidden">
+                <TextBox Name="variance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,20,0,0" Width="217" FontSize="16" Height="23" IsReadOnly="True"/>
+                <TextBox Name="deviation" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,60,0,0" Width="218" FontSize="16" Height="26" IsReadOnly="True"/>
+                <Label Content="方差：" HorizontalAlignment="Left" Margin="49,20,0,0" VerticalAlignment="Top"/>
+                <Label Content="标准差：" HorizontalAlignment="Left" Margin="37,60,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </Grid>
+
+        <!--玩家-->
+        <ListView Name="playerView" HorizontalAlignment="Left" Height="370" Margin="325,198,0,0" VerticalAlignment="Top" Width="300" SelectionMode="Single" SelectionChanged="OnSelectPlayer" MouseDoubleClick="OnChangePlayerName">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="玩家列表" DisplayMemberBinding="{Binding PlayerName}" Width="110"/>
+                    <GridViewColumn Header="命中" DisplayMemberBinding="{Binding Hit}" Width="60"/>
+                    <GridViewColumn Header="小计" DisplayMemberBinding="{Binding SubTotal}" Width="60"/>
+                    <GridViewColumn Header="共数" DisplayMemberBinding="{Binding Sum}" Width="60"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!--信息-->
+        <ListView Name="dataView" HorizontalAlignment="Left" Height="370" Margin="630,198,0,0" VerticalAlignment="Top" Width="382" SelectionMode="Single" SelectionChanged="OnSelectBullet">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="序号" DisplayMemberBinding="{Binding Index}" Width="70"/>
+                    <GridViewColumn Header="弹型" DisplayMemberBinding="{Binding Type}" Width="70"/>
+                    <GridViewColumn Header="X(像素)" DisplayMemberBinding="{Binding X}" Width="70"/>
+                    <GridViewColumn Header="Y(像素)" DisplayMemberBinding="{Binding Y}" Width="70"/>
+                    <GridViewColumn Header="其他" DisplayMemberBinding="{Binding Other}" Width="90"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Visibility="Visible" Name="logView" BorderThickness="1" HorizontalAlignment="Left" Height="513" Margin="1017,55,0,0" VerticalAlignment="Top" Width="265" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Time}"/>
+                    <GridViewColumn Width="500" DisplayMemberBinding="{Binding Message}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Controls:MetroWindow>

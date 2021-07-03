@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <firmware_info name="powerboard">
+    <version version="5.0.2.7">
+      <name name="FW_PM01_5.0.2.7.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/bf5d2d1e9cfd61566218178731946522.encx"/>
+      <description description="电源管理模块"/>
+      <date date="2019-08-19"/>
+    </version>
+  </firmware_info>
+  <firmware_info name="mainboard">
+    <version version="5.0.2.25">
+      <name name="FW_MC02_5.0.2.25.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/9ca825d9255691566218202515179936.encx"/>
+      <description description="主控模块"/>
+      <date date="2019-08-19"/>
+    </version>
+  </firmware_info>
+  <firmware_info name="strike">
+    <version version="5.0.2.2">
+      <name name="FW_AM02_5.0.2.2.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/35326279fdb9b1563545227840567178.encx"/>
+      <description description="装甲"/>
+      <date date="2019-07-19"/>
+    </version>
+  </firmware_info>
+  <firmware_info name="RFID">
+    <version version="5.0.0.14">
+      <name name="FW_FI02_5.0.0.14.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/91cd6cfaeabff1553843962564988421.encx"/>
+      <description description="RFID"/>
+      <date date="2019-03-29"/>
+    </version>
+  </firmware_info>
+  <firmware_info name="speedDetect">
+    <version version="5.0.2.5">
+      <name name="FW_SM01_5.0.2.5.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/142788186acb41563954114248360101.encx"/>
+      <description description="测速模块，对测速逻辑进行了少量优化，建议参赛队及时更新验证"/>
+      <date date="2019-07-24"/>
+    </version>
+  </firmware_info>
+  <firmware_info name="bloodbar">
+    <version version="5.0.1.1">
+      <name name="FW_LB01_5.0.1.1.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/4e2b68b1a2b3f1557493424711107784.encx"/>
+      <description description="灯条模块"/>
+      <date date="2019-05-10"/>
+    </version>
+  </firmware_info>
+  <firmware_info name="uwb">
+    <version version="5.0.0.11">
+      <name name="UWB_uC5.0.0.11.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/be74faeac57e81557496182581154999.encx"/>
+      <description description="定位模块"/>
+      <date date="2019-05-10"/>
+    </version>
+  </firmware_info>
+  <firmware_info name="camera">
+    <version version="5.0.1.3">
+      <name name="FW_VT02_5.0.1.3.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/1c13afe84a3a71562595854443253096.encx"/>
+      <description description="图传模块"/>
+      <date date="2019-07-08"/>
+    </version>
+  </firmware_info>
+  <firmware_info name="infraredray">
+    <version version="6.0.0.1">
+      <name name="IR_6_0.0.1.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/1c13afe84a3a71562595854443253096.encx"/>
+      <description description="红外靶模块"/>
+      <date date="2019-07-08"/>
+    </version>
+	<version version="6.0.0.2">
+      <name name="IR_6_0.0.2.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/1c13afe84a3a71562595854443253096.encx"/>
+      <description description="红外靶模块"/>
+      <date date="2019-07-09"/>
+    </version>
+	<version version="6.0.0.3">
+      <name name="IR_6_0.0.3.encx"/>
+      <path path="https://rm-static.djicdn.com/documents/17348/1c13afe84a3a71562595854443253096.encx"/>
+      <description description="红外靶模块"/>
+      <date date="2019-07-10"/>
+    </version>
+  </firmware_info>
+</root>

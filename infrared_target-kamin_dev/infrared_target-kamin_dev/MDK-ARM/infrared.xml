@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <header_version value="0.0.0.1">
+    <app_version value="6.0.0.4" />
+    <app_startup_address value="0x8007800" />
+    <app_param_address value="0x801F800" />
+    <image_type value="0" />
+    <image_write_addr value="0x8007800" />
+    <hardware_code value="0xE000700" />
+    <security_information value="0" />
+  </header_version>
+</root>

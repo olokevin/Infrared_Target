@@ -1,0 +1,80 @@
+﻿<Controls:MetroWindow
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        x:Class="InfraredRayTarget.HelpPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfraredRayTarget" Loaded="OnLoaded" KeyDown="OnKeyDown"
+        mc:Ignorable="d" Topmost="True" ShowMinButton="False" ShowMaxRestoreButton="False" WindowStartupLocation="CenterScreen"
+        Title="帮助面板" Height="450" Width="800">
+    <Grid>
+        <TextBox Name="titleBox" Height="57" Margin="518,25,16,0" TextWrapping="Wrap" Text="串口" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+
+        <Button Name="btn_left" Content="▲" Background="White" HorizontalAlignment="Left" Margin="545,330,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource BorderBtn}" Click="OnLeftPage" RenderTransformOrigin="0.5,0.5" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Name="btn_right" Content="▲" Background="White" HorizontalAlignment="Left" Margin="695,330,0,0" VerticalAlignment="Top" Width="50" Height="50" Style="{StaticResource BorderBtn}" BorderBrush="Transparent" Click="OnRightPage" RenderTransformOrigin="0.5,0.5" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+        <Grid Name="portGrid" Visibility="Visible" HorizontalAlignment="Left" Height="220" Margin="518,105,0,0" VerticalAlignment="Top" Width="264">
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Content="支持多个串口运行" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,38,0,0" Content="不支持串口断线重连" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,68,0,0" Content="打开串口前可配置串口相关属性" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,98,0,0" Content="双击单项串口名字打开该串口面板" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+        </Grid>
+
+        <Grid Name="playerGrid" Visibility="Hidden" HorizontalAlignment="Left" Height="220" Margin="518,105,0,0" VerticalAlignment="Top" Width="264">
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Content="双击玩家名字可进行修改" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+            <Label HorizontalAlignment="Left" Height="28" Margin="10,40,0,0" Content="接收到的数据会记录到当前玩家" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+        </Grid>
+
+        <Grid Name="targetGrid" Visibility="Hidden" HorizontalAlignment="Left" Height="220" Margin="518,105,0,0" VerticalAlignment="Top" Width="264">
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Content="标记一个目标，从而打击" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,40,0,0" Content="可标记一个或多个目标" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,70,0,0" Content="目标可同时拥有不同的颜色" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+        </Grid>
+
+        <Grid Name="otherGrid" Visibility="Hidden" HorizontalAlignment="Left" Height="220" Margin="518,105,0,0" VerticalAlignment="Top" Width="264">
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Content="RM 红外靶 v5.0.0.1" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+            <Label HorizontalAlignment="Left" Height="30" Margin="10,40,0,0" Content="Robomaster" VerticalAlignment="Top" Width="244" HorizontalContentAlignment="Center"/>
+        </Grid>
+        <TextBlock Name="pageLabel" HorizontalAlignment="Left" Margin="636,347,0,0" TextWrapping="Wrap" Text="1/4" VerticalAlignment="Top"/>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="30,25,0,0" VerticalAlignment="Top" Width="179"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="214,25,0,0" VerticalAlignment="Top" Width="299"/>
+        <ComboBox x:Name="componentBox" HorizontalAlignment="Left" Margin="80,50,0,0" VerticalAlignment="Top" Width="70" SelectedIndex="0" SelectionChanged="OnSelectComponent">
+            <ComboBoxItem Content="背景"/>
+            <ComboBoxItem Content="轴承"/>
+            <ComboBoxItem Content="目标"/>
+        </ComboBox>
+        <Slider x:Name="opacitySlider" HorizontalAlignment="Left" Margin="65,90,0,0" VerticalAlignment="Top" Width="100" ValueChanged="OnChangeOpacity"/>
+        <Label Content="透明" Background="White" HorizontalAlignment="Left" Margin="50,12,0,0" VerticalAlignment="Top"/>
+
+        <Grid Margin="30,147,279,10">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="253" VerticalAlignment="Top" Width="483"/>
+            <Label Content="保留区域" Background="White" HorizontalAlignment="Left" Margin="20,-14,0,0" VerticalAlignment="Top"/>
+            <Canvas Name="canvas_lightbead"/>
+            <TextBlock Foreground="Gray" Name="txt_x" Text="以后新功能待开发，有建议可以发送邮件至RM官网" HorizontalAlignment="Left" Margin="80,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="65"/>
+            <TextBlock Name="txt_y" HorizontalAlignment="Left" Margin="80,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="65"/>
+        </Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="310" Margin="518,90,0,0" VerticalAlignment="Top" Width="264"/>
+        <Label Content="保留区域" Background="White" HorizontalAlignment="Left" Margin="235,12,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Controls:MetroWindow>
